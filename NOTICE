@@ -1,0 +1,48 @@
+aws-summit-japan-2026-recap
+Copyright 2026 Masahiro Tatsumi
+
+This product includes software developed by the project authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this software except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+TRADEMARK NOTICES
+================================================================================
+
+"AWS", "Amazon Web Services", and "AWS Summit" are trademarks of
+Amazon.com, Inc. or its affiliates. This project is **not affiliated with,
+endorsed by, or sponsored by Amazon Web Services, Inc.** All trademarks
+are the property of their respective owners.
+
+================================================================================
+THIRD-PARTY CONTENT (NOT DISTRIBUTED IN THIS REPOSITORY)
+================================================================================
+
+The scripts in this repository, when executed by the user, download and
+transform publicly accessible content from AWS Summit Japan 2026
+on-demand endpoints (session metadata, VTT captions, slide PDFs). That
+content is the intellectual property of:
+
+- Amazon Web Services, Inc. and Amazon.com, Inc. (event metadata, hosting)
+- The respective session speakers and their employers (presentation content)
+
+None of that content is bundled with, or distributed by, this repository.
+Users who run the scripts are responsible for complying with the AWS Summit
+Japan terms of service and any applicable copyright laws in their
+jurisdiction.
+
+AI-generated summaries produced by the user's own Anthropic API key (or
+Claude Code subscription) are derivative works of the underlying caption
+content and are intended for personal study only — not for redistribution.
+
+================================================================================
+THIRD-PARTY OPEN SOURCE DEPENDENCIES
+================================================================================
+
+This software depends on a number of open-source libraries listed in the
+respective package.json files (`./package.json` and `./app/package.json`).
+Each dependency is licensed under its own terms; please refer to the
+individual library's repository for license information.

@@ -1,0 +1,17 @@
+{
+  "name": "aws-summit-2026-ondemand",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AWS Summit Japan 2026 オンデマンド字幕の取得・要約・検索アプリ基盤",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "download": "node scripts/download.mjs",
+    "summarize": "node scripts/summarize.mjs",
+    "finalize": "node scripts/finalize.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "pdf-parse": "^2.4.5"
+  }
+}

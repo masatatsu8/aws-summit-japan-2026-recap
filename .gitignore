@@ -1,0 +1,40 @@
+# ===== 環境変数 (秘匿) =====
+.env
+.env.local
+.env.*.local
+
+# ===== Node 依存 =====
+node_modules/
+# トレイリングスラッシュなしでも明示 (symlink で偽装した場合も拾う)
+node_modules
+**/node_modules
+
+# ===== ダウンロード/生成データ (利用者が自分の責任で生成) =====
+# AWS 配信の VTT / 文字起こし / PDF はリポジトリに含めない
+data/catalog.json
+data/catalog.json.bak
+data/vtt/
+data/transcripts/
+data/slides/
+data/slides_text/
+data/slides_urls.json
+data/summaries/
+data/screenshots/
+
+# SQLite (bookmarks / lists / chats のローカル状態)
+data/bookmarks.db
+data/bookmarks.db-*
+
+# ===== ビルド成果物 =====
+app/dist/
+# build-index.mjs の生成物
+app/src/data/app-data.json
+app/src/data/slides-text.json
+
+# ===== ログ / ノイズ =====
+*.log
+.DS_Store
+
+# ===== ツール =====
+.playwright-mcp/
+app/.playwright-mcp/

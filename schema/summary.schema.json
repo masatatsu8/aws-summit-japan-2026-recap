@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Session Summary",
+  "description": "1セッション分の参照情報(タイムスタンプ引用)付き要約。Webアプリの検索・頭出しに使用。",
+  "type": "object",
+  "required": ["slug", "title", "tldr", "keyPoints", "citations"],
+  "properties": {
+    "slug": { "type": "string", "description": "セッション識別子（例: jpn-xxxNNN または jpn-xxxNNN-s）" },
+    "title": { "type": "string" },
+    "track": { "type": "string", "description": "例: AWS Summit Japan - Track 7" },
+    "speaker": { "type": "string", "description": "登壇者（任意。セッションページから取得）" },
+    "durationSec": { "type": "integer" },
+    "captionLang": { "type": "string", "enum": ["ja", "en"], "description": "要約の基にした字幕言語" },
+    "hlsMaster": { "type": "string", "format": "uri", "description": "HLSマスターm3u8。Webアプリのプレイヤーが頭出し再生に使用" },
+    "officialUrl": { "type": "string", "format": "uri", "description": "公式オンデマンドページ（要ログイン）" },
+    "tldr": { "type": "string", "description": "2〜4文の要旨" },
+    "keyPoints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "重要ポイントの箇条書き（検索対象）"
+    },
+    "citations": {
+      "type": "array",
+      "description": "要約内の各論点に対応する動画頭出しポイント。クリックで startSec から再生する。",
+      "items": {
+        "type": "object",
+        "required": ["label", "startSec"],
+        "properties": {
+          "label": { "type": "string", "description": "この箇所の要点ラベル" },
+          "timestamp": { "type": "string", "description": "表示用 mm:ss" },
+          "startSec": { "type": "integer", "description": "頭出し秒（字幕キュー開始）" },
+          "quote": { "type": "string", "description": "該当箇所の引用（軽微整形可）" }
+        }
+      }
+    },
+    "asrNote": { "type": "string", "description": "自動字幕の誤認識補正に関する注記" }
+  }
+}

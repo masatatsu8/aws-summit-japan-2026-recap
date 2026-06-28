@@ -1,0 +1,45 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            app/package-lock.json
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install app dependencies
+        run: npm ci
+        working-directory: app
+
+      - name: Generate app-data stub for typecheck
+        # 本物の app-data.json は build-index.mjs が利用者環境で生成する。
+        # CI は typecheck のためだけに、 同じ shape の空 stub を置く。
+        run: |
+          mkdir -p app/src/data
+          echo '{"sessions":[],"summaries":{}}' > app/src/data/app-data.json
+          echo '{}' > app/src/data/slides-text.json
+
+      - name: Type-check app
+        run: npx tsc --noEmit
+        working-directory: app
+
+      - name: Validate fictional sample against schema
+        run: node scripts/check-sample.mjs
