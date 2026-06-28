@@ -55,7 +55,7 @@ AI で要約・引用付き検索できるようにする、**非公式の個人
 
 ```bash
 # 1. クローン + 依存インストール
-git clone https://github.com/<your-org>/aws-summit-japan-2026-recap.git
+git clone https://github.com/masatatsu8/aws-summit-japan-2026-recap.git
 cd aws-summit-japan-2026-recap
 npm install
 
